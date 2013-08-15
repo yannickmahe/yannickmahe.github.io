@@ -11,15 +11,23 @@
 	<h3>Archive</h3>
 	<p><i class="glyphicon glyphicon-calendar"></i> <a href="#">March 2013 (3)</a><p>
 	<hr>
-	<h3>Categories</h3>
-	<p><i class="glyphicon glyphicon-asterisk"></i> <a href="#">Symfony (3)</a><p>
-	<hr>
-	<h3>Related</h3>
-	<p><i class="glyphicon glyphicon-arrow-right"></i> <a href="#">Moving forward</a><p>
-	<hr>
+	{% if site.categories|length > 0  %}
+		<h3>Categories</h3>
+		{% for category in site.categories %}
+			<p><i class="glyphicon glyphicon-asterisk"></i> <a href="#">{{ category|first }} ({{ category.size|minus:1 }})</a></p>
+		{% endfor %}
+		<hr>
+	{% endif %}
+	{% if site.related_posts|length > 0  %}
+		<h3>Related</h3>
+		{% for post in site.related_posts %}
+			<p><i class="glyphicon glyphicon-arrow-right"></i> <a href="{{ post.url }}">{{ post.title }}</a><p>
+		{% endfor %}
+		<hr>
+	{% endif %}
 	<h3>Links</h3>
-	<p><i class="glyphicon glyphicon-star"></i> <a href="#">Personnal site</a><p>
-	<p><i class="glyphicon glyphicon-star"></i> <a href="#">Twitter</a><p>
-	<p><i class="glyphicon glyphicon-star"></i> <a href="#">Github</a><p>
+	<p><i class="glyphicon glyphicon-star"></i> <a target="_blank" href="http://www.yannickmahe.com/">Personnal site</a><p>
+	<p><i class="glyphicon glyphicon-star"></i> <a target="_blank" href="https://twitter.com/yannickmahe">Twitter</a><p>
+	<p><i class="glyphicon glyphicon-star"></i> <a target="_blank" href="https://github.com/yannickmahe">Github</a><p>
 	<hr>
 </div>
