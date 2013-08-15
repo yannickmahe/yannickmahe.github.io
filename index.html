@@ -1,14 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<div class="container">	
-			<div class="page-header">
-				<h1>Hello!</h1>
-			</div>
-		</div>
-	</body>
-</html>
+---
+layout: default
+---
+
+{% for post in paginator.posts %}
+	<div class="page-header">
+		<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+	</div>
+	{{ post.content }}
+{% endfor %}
+
+<ul class="pagination">
+  {% if paginator.previous_page %}
+  	{% if paginator.previous_page == 1 %}
+  		<li><a href="/">&laquo;</a></li>
+  	{% else %}
+  		<li><a href="/page/{{ paginator.previous_page }}">&laquo;</a></li>
+  	{% endif %}
+  {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+
+  {% if paginator.page > 3 %}
+	  <li><a href="/">1</a></li>
+	  <li><a href="#" class="disabled">...</a></li>
+  {% endif %}
+
+  {% if paginator.page > 3 %}
+ 	 <li><a href="/page/{{ paginator.page-2 }}">2</a></li>
+  {% elsif paginator.page == 3 %}
+  	<li><a href="/">1</a></li>
+  {% endif %}
+
+  {% if paginator.page > 2 %}
+  	<li><a href="/page/{{ paginator.page-1 }}">{{ paginator.page-1 }}</a></li>
+  {% elsif paginator.page == 2 %}
+  	<li><a href="/">1</a></li>
+  {% endif %}
+
+
+  <li><a class="disabled" href="/page/{{ paginator.page }}"><strong>{{ paginator.page }}</strong></a></li>
+  
+  {% if paginator.page < paginator.total_pages %}
+  	<li><a href="/page/{{ paginator.page | plus:1 }}">{{ paginator.page | plus:1 }}</a></li>
+  {% endif %}
+
+
+  {% if paginator.page+1 < paginator.total_pages %}
+ 	 <li><a href="/page/{{ paginator.page | plus:2 }}">{{ paginator.page | plus:2 }}</a></li>
+  {% endif %}
+
+  {% if paginator.page+3 < paginator.total_pages %}
+  	<li><a href="#" class="disabled">...</a></li>
+ 	<li><a href="/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+  {% endif %}
+
+
+
+  {% if paginator.next_page %}
+  	<li><a href="/page/{{ paginator.next_page }}">&raquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+  {% endif %}
+  
+</ul>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% include head.html %}
+	</head>
+	<body>
+		{% include header.html %}
+
+		<div class="container">	
+			<div class="row">
+				
+				{% include navigation.html %}	
+
+				<div class="col-md-9 col-xs-12">
+					<div class="page-header">
+						<h1>{{ page.title }}</h1>
+					</div>
+
+					{{ content }}
+
+					<hr>
+					<p>Hi, my name is Yannick Mahé, and I'm the CTO at <a href="http://www.easycreadoc.com/">Alveos</a>. We write software that automates marketing for franchise networks.</p>
+
+					<p>If you've read this far, you may want to follow me on twitter.</p>
+				</div>
+			</div>
+		</div>
+
+		
+		{% include footer.html %}
+	</body>
+</html>
