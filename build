@@ -1,5 +1,5 @@
 jekyll build
-cp _site/search.json
+cp _site/search.json ./
 git add .
 git commit -m "latest build"
 git push
