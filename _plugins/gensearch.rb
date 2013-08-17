@@ -115,6 +115,9 @@ module Jekyll
 
             # Finally, add the json file to the static files list
             site.static_files << Jekyll::SearchData.new(site, site.dest, "/", "search.json")
+
+            print "Deleting temp index\n"
+            FileUtils.rm_rf('test.idx')
         end
     end
 end
