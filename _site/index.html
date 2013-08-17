@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" rel="stylesheet">
+<style>
+	body { padding-top: 70px; }
+	#searchresults { margin-top: 20px; }
+</style>
+<link rel="alternate" type="application/rss+xml" title="Yannick Mahe's blog" href="/feed.xml">
+		<title>Homepage | Yannick Mahe's blog</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="/">Yannick Mahe's blog</a>
+		</div>
+		<div class="navbar-ex1-collapse">
+		    <p class="navbar-text">CTO at Alveos, Full stack web developer</p>
+			<ul class="nav navbar-nav navbar-right pull-right">
+		      <li><a target="_blank" href="http://www.yannickmahe.com/">About me</a></li>
+		      <li><a target="_blank" href="http://www.easycreadoc.com/">Where I work</a></li>
+		    </ul>
+		</div>
+	</div>
+</nav>
+
+		<div class="container">	
+			<div class="row">
+
+				<div class="col-md-9 col-xs-12">
+					
+
+	
+				</div>
+				
+				<div class="col-md-3 col-xs-6">
+	<h3>Search</h3>
+	<form class="form-inline" role="form" id="searchform" onsubmit="doSearch();return false;">
+	  <div class="form-group">
+	    <label class="sr-only" for="searchInput">Search terms</label>
+	    <input type="text" autocomplete="off" id="searchbox" class="form-control" id="searchInput" placeholder="Search terms">
+	  </div>
+	  <button type="submit" id="searchbutton" class="btn btn-default">Search</button>
+	</form>
+	<div id="searchresults"></div>
+	<hr>
+	<h3>Older posts</h3>
+	
+	
+	<br>
+	<p><a href="/all-posts/">All posts</a>
+	<hr>
+	
+	<h3>Links</h3>
+	<p><a target="_blank" href="https://twitter.com/yannickmahe">Twitter</a><p>
+	<p><a target="_blank" href="https://github.com/yannickmahe">Github</a><p>
+	<p><a target="_blank" href="http://www.yannickmahe.com/">About me</a><p>
+	<hr>
+</div>	
+			</div>
+		</div>
+
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
+<script src="/javascripts/search.js"></script>
+<script type="text/javascript">
+function doSearch() {
+  run_search(function doit() {
+
+    var results_html = '';
+    if($('#searchbox').val() == ''){
+    	$('#searchresults').html('');
+    }
+    var max = 10;
+
+    //parse last 10 best results
+    for(var i = 0; i < final_results.length && i < max; i++){
+    	result = final_results[i];
+
+    	//exclude home and list of all posts
+    	if(result.u == '/index.html' || result.u == '/all-posts/all-posts/index.html' || result.u == '/feed.xml'){
+    		max++;
+    		continue;
+    	}
+
+    	//Build them in a list
+    	result_html = '<p><a href="'+result.u+'">'+result.t+'</a></p>';
+
+    	results_html += result_html;
+
+    }    
+
+    //Push the content in #searchresults
+    $('#searchresults').html(results_html);
+
+  });
+}
+
+$('#searchbox').keyup(doSearch);
+</script>
+	</body>
+</html>
