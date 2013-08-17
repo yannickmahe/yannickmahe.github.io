@@ -1,13 +1,14 @@
 <div class="col-md-3 col-xs-6">
-	<!--<h3>Search</h3>
-	<form class="form-inline" role="form">
+	<h3>Search</h3>
+	<form class="form-inline" role="form" id="searchform" onsubmit="doSearch();return false;">
 	  <div class="form-group">
 	    <label class="sr-only" for="searchInput">Search terms</label>
-	    <input type="text" class="form-control" id="searchInput" placeholder="Search terms">
+	    <input type="text" autocomplete="off" id="searchbox" class="form-control" id="searchInput" placeholder="Search terms">
 	  </div>
-	  <button type="submit" class="btn btn-default">Search</button>
+	  <button type="submit" id="searchbutton" class="btn btn-default">Search</button>
 	</form>
-	<hr>-->
+	<div id="searchresults"></div>
+	<hr>
 	<h3>Older posts</h3>
 	{% assign i = 0 %}
 	{% for post in site.posts %}

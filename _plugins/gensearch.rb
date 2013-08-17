@@ -92,6 +92,36 @@ module Jekyll
                 end
             end
 
+            posts = site.posts
+            posts.each do |post|
+                # add the post info to the ferret index
+                index << {  
+                  :title => post.title,
+                  :url => "#{post.dir}#{post.url}",
+                  :content => post.content,
+                }
+
+                # lump the title into the content just to make sure
+                # we don't miss any words.
+                toscan = "#{post.data['title']} #{post.content}"
+
+                # Loop over all the words (after splitting, subbing, and downcasing)
+                # and stick them into an array, avoiding dupes
+                #
+                # FIXME: this gsub is far from perfect. It doesn't capture 
+                #        single or double quotes at the begining/end of a word
+                #        and misses other stuff too, but it works well enough
+                toscan.downcase.gsub(/[^a-z -\']/, ' ').split(" ").each do |word|
+                    if word == ""
+                        next
+                    end
+                    if !all_words.rindex(word)
+                        all_words << word
+                        word_scores[word] = []
+                    end
+                end
+            end
+
             # Now we have all the words, and all the text is indexed, so lets run through
             # every word to generate a list of scores and documents that word occured in...
             # We use _short_ strings for hash keys to save space
@@ -116,7 +146,7 @@ module Jekyll
             # Finally, add the json file to the static files list
             site.static_files << Jekyll::SearchData.new(site, site.dest, "/", "search.json")
 
-            print "Deleting temp index\n"
+            # search.json regeneration crashes if index isn't removed
             FileUtils.rm_rf('test.idx')
         end
     end

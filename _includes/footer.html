@@ -1,3 +1,38 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
 <script src="/javascripts/search.js"></script>
+<script type="text/javascript">
+function doSearch() {
+  run_search(function doit() {
+
+    var results_html = '';
+    if($('#searchbox').val() == ''){
+    	$('#searchresults').html('');
+    }
+    var max = 10;
+
+    //parse last 10 best results
+    for(var i = 0; i < final_results.length && i < max; i++){
+    	result = final_results[i];
+
+    	//exclude home and list of all posts
+    	if(result.u == '/index.html' || result.u == '/all-posts/all-posts/index.html' || result.u == '/feed.xml'){
+    		max++;
+    		continue;
+    	}
+
+    	//Build them in a list
+    	result_html = '<p><a href="'+result.u+'">'+result.t+'</a></p>';
+
+    	results_html += result_html;
+
+    }    
+
+    //Push the content in #searchresults
+    $('#searchresults').html(results_html);
+
+  });
+}
+
+$('#searchbox').keyup(doSearch);
+</script>
