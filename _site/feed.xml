@@ -7,7 +7,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>The Walking Dead : the consequences of living with a legacy PHP framework</title>
+        <title>The Walking Dead: the consequences of living with a legacy PHP framework</title>
         <description>&lt;p&gt;At our company, our main web app is based on Symfony 1.0, a PHP framework released in 2008. It was developped by a company called Sensio and open-sourced shortly after. It was a great framework when it came out, with all the good ideas from Ruby On Rails, CakePHP, etc. as well as great documentation, tutorials and a growing community. It is completely MVC, lets you write clean code, and does a lot of things a modern framework is supposed to let you do. But version 1.0 is clearly obsolete, and it is still our main framework.&lt;/p&gt;
 
 &lt;p&gt;Since that framework came out, its subsequent versions, Symfony 1.1, 1.2, 1.3, 1.4 came out and died out. The 1.4 version came with a 3 year long term support promise from Sensio which ended in 2012. All the 1.X versions are based on the same overall architecture, and same principles. Sensio also released Symfony 2.0, 2.1, 2.2 and very recently, 2.3. which have a whole new architecture. This means a migration to those versions would all but require a complete rewrite&lt;/p&gt;

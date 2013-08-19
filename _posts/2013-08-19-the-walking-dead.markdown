@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: "The Walking Dead : the consequences of living with a legacy PHP framework"
+title: "The Walking Dead: the consequences of living with a legacy PHP framework"
 categories: [symfony]
 ---
 
