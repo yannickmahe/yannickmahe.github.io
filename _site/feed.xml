@@ -50,7 +50,11 @@
 
 &lt;p&gt;Could this have been avoided ?&lt;/p&gt;
 
-&lt;p&gt;Somewhat. While it was impossible to predict at the time of the release of 1.0 that Sensio would break backward compatibility with 2.X, regular upgrades to 1.1 all the way to 1.4 would have helped. The release of 2.X however would have required the complete rewrite we were unable/unwilling to finish.&lt;/p&gt;</description>
+&lt;p&gt;Somewhat. While it was impossible to predict at the time of the release of 1.0 that Sensio would break backward compatibility with 2.X, regular upgrades to 1.1 all the way to 1.4 would have helped. The release of 2.X however would have required the complete rewrite we were unable/unwilling to finish.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Further discussion&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reddit discussion on &lt;a href='http://www.reddit.com/r/PHP'&gt;/r/php&lt;/a&gt;: &lt;a href='http://www.reddit.com/r/PHP/comments/1knp3v/the_walking_dead_living_with_a_legacy_php/'&gt;link&lt;/a&gt;&lt;/p&gt;</description>
         <pubDate>Mon, 19 Aug 2013 00:00:00 +0200</pubDate>
         <link>/symfony/2013/08/19/the-walking-dead.html</link>
         <guid isPermaLink="true">/symfony/2013/08/19/the-walking-dead.html</guid>

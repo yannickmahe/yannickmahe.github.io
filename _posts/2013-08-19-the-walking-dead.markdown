@@ -39,3 +39,10 @@ Apart from that though, our users don't feel the age of the framework that much.
 Could this have been avoided ?
 
 Somewhat. While it was impossible to predict at the time of the release of 1.0 that Sensio would break backward compatibility with 2.X, regular upgrades to 1.1 all the way to 1.4 would have helped. The release of 2.X however would have required the complete rewrite we were unable/unwilling to finish.
+
+
+
+
+**Further discussion**
+
+Reddit discussion on [/r/php](http://www.reddit.com/r/PHP): [link](http://www.reddit.com/r/PHP/comments/1knp3v/the_walking_dead_living_with_a_legacy_php/)
