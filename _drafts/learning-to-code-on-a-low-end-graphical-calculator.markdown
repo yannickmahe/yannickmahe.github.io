@@ -18,7 +18,7 @@ Programming on the TI-80 was, in retrospect, a peculiar experience. The language
 - the only data model available were arrays, called lists. There were only 6 lists available, with a max size of 99 items, and of course they could only store floats.
 - there was no way to get data from the user during the program run apart from a prompt. This meant there was no way for the calculator to tell which key was being pressed, so any real time interaction was out of the question
 - storing data in variables was done in the opposite way to the standard. Instead of typing: A = 1, you typed: 1->A
-- goto were available, but you were limited to 10 goto destinations.
+- goto were available, but you were limited to 36 goto destinations.
 
 Of course, there were also strong limitations with the hardware.
 there was only 7Kb of RAM on the calculator and no ROM, so you checked every byte to make sure your program would fit, and could run without hitting "ERR: MEMORY"
@@ -27,7 +27,7 @@ there was no data input port. This meant you were limited to TI-BASIC and couldn
 
 At the time though, I didn't realise that was weird in any way. It was just how you programmed.
 
-This led to a number of hacks to get the code running. I wouldn't put closing parenthesis at the end of my FOR loop definition because the interpreter would add it implicitely. That way I'd gain one byte of memory. Two dimensionnal matrixes were handled by putting the array\[n\]\[m\] data at the n*(array_size)+m position in the one dimensionnal list. Often, I'd go at great length coming up with clever mathematical formulas that today I would do in a separate function, with a bunch of if/else. That would save me a few lines of code as well as making the program flow clearer.
+This led to a number of hacks to get the code running. I wouldn't put closing parenthesis at the end of my FOR loop definition because the interpreter would add it implicitely. That way I'd gain one byte of memory. Two dimensionnal matrixes were handled by putting the array\[n\]\[m\] data at the n*(array_size)+m position in the one dimensionnal list. Often, I'd go at great length coming up with clever mathematical formulas that today I would do in a separate function, with a bunch of if/else. That would save me a few lines of code as well as making the program flow clearer. When I wanted the program flow to wait a few seconds, I'd make the calculator calculate the hardest operation it could without running out of memory: 69!
 
 [Edsger W. Dijkstra](http://en.wikipedia.org/wiki/Edsger_W._Dijkstra) famously said that those that start to learn programming with Basic become brain damaged. I'm glad to report, there seems to be few lasting repercussions on my programming style. At least, I don't think it is, you'd have to ask the people who maintain my code.
 
