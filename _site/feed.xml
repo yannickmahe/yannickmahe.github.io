@@ -7,6 +7,161 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Learning to code on a low end graphical calculator.</title>
+        <description>&lt;p&gt;This is how I first started to program, in 1997 to be exact. It was the year I entered high school. Every students was required to have a &lt;a href='http://en.wikipedia.org/wiki/TI80'&gt;TI80&lt;/a&gt; or higher, an entry level programmable graphical calculator. This marvelous little machine cost 100 French Francs at the time, roughly $20 USD or 15 Euros.&lt;/p&gt;
+&lt;img alt='TI80' src='/assets/TI80.jpg' style='float: left; margin-right: 40px;' /&gt;
+&lt;p&gt;I started programming withit as soon as one of my friends showed me how he had created a rock-paper-scissors program on his TI80, and I could never program enough. I programmed before, during and after class - much to the irritation of my teachers (using a calculator in French class is somewhat conspicuous). Like many people who ended up being programmers, I had just found something I loved. My TI80 is dead now, I tore it apart to try and put it back together as soon as I upgraded, the next year.&lt;/p&gt;
+
+&lt;p&gt;Programming on the TI80 was, in retrospect, a peculiar experience. The language was TI-BASIC, which was a quirky language to say the least especially, in its TI80 form:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the keyboard was calculator style, with the letters ordered alphabetically&lt;/li&gt;
+
+&lt;li&gt;you didn&amp;#8217;t type the program text but inputted &lt;a href='http://en.wikipedia.org/wiki/Lexical_analysis'&gt;lexemes&lt;/a&gt; directly. For example, to use a for loop, you didn&amp;#8217;t type the letter F, O and R, but you went in the &amp;#8220;Program&amp;#8221; menu, and chose the seventh item from the list. In your program code, the &amp;#8220;FOR(&amp;#8221; would be then be displayed and you could input your parameters.&lt;/li&gt;
+
+&lt;li&gt;there was no way to comment your code&lt;/li&gt;
+
+&lt;li&gt;variable names were all exactly one letter long and always in caps (in fact everything was always in caps); and variables could only hold a float value. Some of these variables could be overwritten by the system. X and Y notably got set to coordinates chosen on the screen, so you could never use these variables in any program with graphical capabilities. This meant that you could use at most 25 variables (the greek letter theta &amp;#952; was also available) in a program, all with nondescript names. All these variables were system-wide global variables.&lt;/li&gt;
+
+&lt;li&gt;variables only held floating point values, no strings, objects, arrays&amp;#8230;&lt;/li&gt;
+
+&lt;li&gt;you couldn&amp;#8217;t create macros or functions in a program. You could call a program from another program, but there was no direct way to pass data from one program to the other, you used the variables as they were all global&lt;/li&gt;
+
+&lt;li&gt;the only data model available were arrays, called lists. There were only 6 lists available, with a max size of 99 items, and of course they could only store floats.&lt;/li&gt;
+
+&lt;li&gt;there was no way to get data from the user during the program run apart from a prompt. This meant there was no way for the calculator to tell which key was being pressed, so any real time interaction was out of the question&lt;/li&gt;
+
+&lt;li&gt;storing data in variables was done in the opposite way to the standard. Instead of typing: A = 1, you typed: 1-&amp;gt;A&lt;/li&gt;
+
+&lt;li&gt;goto were available, but you were limited to 36 goto destinations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of course, there were also strong limitations with the hardware. there was only 7Kb of RAM on the calculator and no ROM, so you checked every byte to make sure your program would fit, and could run without hitting &amp;#8220;ERR: MEMORY&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;The screen was 2-colors, of course, and a very small screen (76 by 80 if I remember correctly).&lt;/p&gt;
+
+&lt;p&gt;There was no data input port. This meant you were limited to TI-BASIC and couldn&amp;#8217;t use any Assembly, like other TIs could. This also meant that if you wanted to use a program a friend had or that you found on the Internet, the only way to get it was to retype it entirely.&lt;/p&gt;
+
+&lt;p&gt;This led to a number of hacks to get the code running. I wouldn&amp;#8217;t put closing parenthesis at the end of my FOR loop definition because the interpreter would add it implicitely. That way I&amp;#8217;d gain one byte of memory.&lt;/p&gt;
+
+&lt;p&gt;Two dimensionnal matrixes were handled by putting the array[n][m] data at the n*(array_size)+m position in the one dimensionnal list.&lt;/p&gt;
+
+&lt;p&gt;Often, I&amp;#8217;d go at great length coming up with clever mathematical formulas that today I would do in a separate function, with a bunch of if/else. That would save me a few lines of code as well as making the program flow a little clearer.&lt;/p&gt;
+
+&lt;p&gt;When I wanted the program flow to wait a few seconds, I&amp;#8217;d make the calculator calculate the hardest operation it could without running out of memory: 69!. If it tried to compute 70!, it crashed.&lt;/p&gt;
+
+&lt;p&gt;At the time of course, I didn&amp;#8217;t realise that was weird in any way. It was just how you programmed.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of a program I wrote. In this programe you would, play a game similar to Invaders, except turn based instead of real time. Enemies would appear randomly at the top, and go down every turn. The player would try to kill them off one by one at each of his turn. Enemies would be one step closer everytime. I advise you not to try to understand this code&amp;#8230;&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='ss'&gt;:PLOTSOFF&lt;/span&gt; 
+&lt;span class='ss'&gt;:FNOFF&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRLIST&lt;/span&gt; &lt;span class='no'&gt;L1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L2&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;XMIN&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;63&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;XMAX&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;XSCL&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;YMIN&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;47&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;YMAX&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;YSCL&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRDRAW&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRHOME&lt;/span&gt;
+&lt;span class='ss'&gt;:DISP&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;INVADERS&lt;/span&gt;
+&lt;span class='s2'&gt;:PAUSE&lt;/span&gt;
+&lt;span class='s2'&gt;:CLRHOME&lt;/span&gt;
+&lt;span class='s2'&gt;:DISP &amp;quot;&amp;quot;,&amp;quot;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span class='no'&gt;INITIALIZATION&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;69&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;69&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;69&lt;/span&gt;&lt;span class='o'&gt;!&lt;/span&gt;
+&lt;span class='ss'&gt;:DISP&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;ENEMIES TO&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;DESTROY&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;SIZE?&lt;/span&gt;
+&lt;span class='s2'&gt;:LBL F&lt;/span&gt;
+&lt;span class='s2'&gt;:INPUT &amp;quot;&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;&amp;lt;&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='o'&gt;&amp;lt;&lt;/span&gt;&lt;span class='mi'&gt;95&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;,W&lt;/span&gt;
+&lt;span class='s2'&gt;:IF W&amp;gt;94&lt;/span&gt;
+&lt;span class='s2'&gt;:GOTO F&lt;/span&gt;
+&lt;span class='s2'&gt;:IF W&amp;lt;0&lt;/span&gt;
+&lt;span class='s2'&gt;:GOTO F&lt;/span&gt;
+&lt;span class='s2'&gt;:INPUT &amp;quot;&lt;/span&gt;&lt;span class='no'&gt;LEVEL&lt;/span&gt;&lt;span class='sc'&gt;?&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;V&lt;/span&gt;
+&lt;span class='ss'&gt;:PLOT1&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='o'&gt;**&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='err'&gt;°&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='o'&gt;**=&lt;/span&gt; &lt;span class='no'&gt;STAT&lt;/span&gt; &lt;span class='no'&gt;PLOT&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='no'&gt;TYPE&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L3&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L4&lt;/span&gt;
+&lt;span class='ss'&gt;:FOR&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;
+&lt;span class='ss'&gt;:RANDINT&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;53&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;47&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='ss'&gt;:END&lt;/span&gt;
+&lt;span class='ss'&gt;:LBL&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;
+&lt;span class='ss'&gt;:IF&lt;/span&gt; &lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='n'&gt;W&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;
+&lt;span class='ss'&gt;:GOTO&lt;/span&gt; &lt;span class='mi'&gt;6&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRDRAW&lt;/span&gt;
+&lt;span class='ss'&gt;:FOR&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L3&lt;/span&gt;
+&lt;span class='ss'&gt;:PT&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='no'&gt;ON&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='ss'&gt;:END&lt;/span&gt;
+&lt;span class='ss'&gt;:IF&lt;/span&gt; &lt;span class='no'&gt;MIN&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;&amp;lt;=&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:GOTO&lt;/span&gt; &lt;span class='mi'&gt;9&lt;/span&gt;
+&lt;span class='ss'&gt;:TRACE&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;11&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;21&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt; 
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;33&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;43&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;53&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;63&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;
+&lt;span class='ss'&gt;:FOR&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;50&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;5&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;
+&lt;span class='ss'&gt;:END&lt;/span&gt;
+&lt;span class='ss'&gt;:FOR&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L3&lt;/span&gt;
+&lt;span class='ss'&gt;:IF&lt;/span&gt; &lt;span class='n'&gt;X&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;
+&lt;span class='ss'&gt;:GOTO&lt;/span&gt; &lt;span class='mi'&gt;7&lt;/span&gt;
+&lt;span class='ss'&gt;:END&lt;/span&gt;
+&lt;span class='ss'&gt;:L4&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='no'&gt;RANDINT&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;V&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;
+&lt;span class='ss'&gt;:GOTO&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;
+&lt;span class='ss'&gt;:LBL&lt;/span&gt; &lt;span class='mi'&gt;7&lt;/span&gt;
+&lt;span class='ss'&gt;:L4&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='no'&gt;RANDINT&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;V&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;
+&lt;span class='ss'&gt;:RANDINT&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;53&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;47&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='ss'&gt;:RANDINT&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;53&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;
+&lt;span class='p'&gt;:&lt;/span&gt;&lt;span class='mi'&gt;47&lt;/span&gt;&lt;span class='o'&gt;-&amp;gt;&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L4&lt;/span&gt;&lt;span class='o'&gt;+&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='ss'&gt;:GOTO&lt;/span&gt; &lt;span class='mi'&gt;1&lt;/span&gt;
+&lt;span class='ss'&gt;:LBL&lt;/span&gt; &lt;span class='mi'&gt;6&lt;/span&gt;
+&lt;span class='ss'&gt;:FOR&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;DIM&lt;/span&gt; &lt;span class='no'&gt;L3&lt;/span&gt;
+&lt;span class='ss'&gt;:LINE&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;A&lt;/span&gt;&lt;span class='p'&gt;),&lt;/span&gt;&lt;span class='mi'&gt;47&lt;/span&gt;
+&lt;span class='ss'&gt;:END&lt;/span&gt;
+&lt;span class='ss'&gt;:PAUSE&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRHOME&lt;/span&gt;
+&lt;span class='ss'&gt;:DISP&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;WON!&lt;/span&gt;
+&lt;span class='s2'&gt;:PAUSE&lt;/span&gt;
+&lt;span class='s2'&gt;:CLRLIST L1,L2,L3,L4&lt;/span&gt;
+&lt;span class='s2'&gt;:CLRHOME&lt;/span&gt;
+&lt;span class='s2'&gt;:STOP&lt;/span&gt;
+&lt;span class='s2'&gt;:LBL 9&lt;/span&gt;
+&lt;span class='s2'&gt;:FOR(A,10,47&lt;/span&gt;
+&lt;span class='s2'&gt;:HORIZONTAL A&lt;/span&gt;
+&lt;span class='s2'&gt;:END&lt;/span&gt;
+&lt;span class='s2'&gt;:CLRDRAW&lt;/span&gt;
+&lt;span class='s2'&gt;:PAUSE&lt;/span&gt;
+&lt;span class='s2'&gt;:CLRHOME&lt;/span&gt;
+&lt;span class='s2'&gt;:DISP &amp;quot;&lt;/span&gt;&lt;span class='no'&gt;GAME&lt;/span&gt; &lt;span class='no'&gt;OVER&lt;/span&gt;
+&lt;span class='ss'&gt;:PAUSE&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRHOME&lt;/span&gt;
+&lt;span class='ss'&gt;:CLRLIST&lt;/span&gt; &lt;span class='no'&gt;L1&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L2&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L3&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='no'&gt;L4&lt;/span&gt;
+&lt;span class='ss'&gt;:PLOTSOFF&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href='http://en.wikipedia.org/wiki/Edsger_W._Dijkstra'&gt;Edsger W. Dijkstra&lt;/a&gt; famously said that those that start to learn programming with Basic become brain damaged. I&amp;#8217;m glad to report, there seems to be few lasting repercussions on my programming style. At least, I don&amp;#8217;t think it is, you&amp;#8217;d have to ask the people who maintain my code.&lt;/p&gt;
+
+&lt;p&gt;What I mainly programmed was games. I started with some glorified rock-paper-scissors, and went on to more advanced territory. The one I liked the most was Minesweeper. Programming has always seemed more fun to me than actually playing the games I developed, but Minesweeper was one the few games I wrote that I actually used more than a few times.&lt;/p&gt;
+
+&lt;p&gt;After that, I tried to do even more advanced games, but the wall that I hit was the calculator&amp;#8217;s inability to allow real time interaction. This limited me to turn based games, which often (in my opinion) are no fun. Especially with a low-level game designer like I am. I tried strategy games, but couldn&amp;#8217;t come up with a sufficiently advanced AI to make the game any fun to play.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#8217;s when I tried something else: I actually developed my own version of Sim-City for the TI80. It was very limited, both graphically and in functionality, but it was pretty fun to play. I was somewhat proud of myself for that one.&lt;/p&gt;
+
+&lt;p&gt;A friend of mine had started his own website, on a Geocities type service provided by his ISP. He asked me if he could put my programs on his website. I, of course, was okay with it. So he typed the whole source code manually on his computer and put it on his website. In essence, before I had any real idea was open source was, I had released my first open source software.&lt;/p&gt;
+
+&lt;p&gt;A few years later, I randomly googled &amp;#8220;TI80 games&amp;#8221; and found on a website I had never heard of, a list of a few games. (the website is still online today: &lt;a href='http://www.ti80.online.fr/jeux.php3'&gt;http://www.ti80.online.fr/jeux.php3&lt;/a&gt; - in french) The last one of the list was Sim-City. The one I had programmed. Apparently, someone had stumbled onto my friend&amp;#8217;s page, and copied the game on their calculator, played it, and found it good enough to put on their website. The only part that was slightly annoying was that they had removed my name from the program (pretty easy to do: remove DISP &amp;#8220;BY YANNICK&amp;#8221; from the code).&lt;/p&gt;
+
+&lt;p&gt;I guess I got &amp;#8220;pirated&amp;#8221; but it was a pretty awesome feeling: somebody, somewhere, was actually playing a game I had created! But the best part was when I found somebody had used the game and liked it so much&amp;#8230; &lt;em&gt;they wrote a strategy guide&lt;/em&gt;.&lt;/p&gt;</description>
+        <pubDate>Sun, 25 Aug 2013 14:33:40 +0200</pubDate>
+        <link>/coding/2013/08/25/learning-to-code-on-a-low-end-graphical-calculator.html</link>
+        <guid isPermaLink="true">/coding/2013/08/25/learning-to-code-on-a-low-end-graphical-calculator.html</guid>
+      </item>
+    
+      <item>
         <title>The Walking Dead: the consequences of living with a legacy PHP framework</title>
         <description>&lt;p&gt;At our company, our main web app is based on Symfony 1.0, a PHP framework released in 2008. It was developped by a company called Sensio and open-sourced shortly after. It was a great framework when it came out, with all the good ideas from Ruby On Rails, CakePHP, etc. as well as great documentation, tutorials and a growing community. It is completely MVC, lets you write clean code, and does a lot of things a modern framework is supposed to let you do. But version 1.0 is clearly obsolete, and it is still our main framework.&lt;/p&gt;
 
