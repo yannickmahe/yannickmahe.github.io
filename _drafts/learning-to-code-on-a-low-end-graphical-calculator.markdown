@@ -135,7 +135,7 @@ Here is an example of a program I wrote. In this programe you would, play a game
 
 {% endhighlight %}
 
-[Edsger W. Dijkstra](http://en.wikipedia.org/wiki/Edsger_W._Dijkstra) famously said that those that start to learn programming with Basic become brain damaged. I'm glad to report, there seems to be few lasting repercussions on my programming style. At least, I don't think it is, you'd have to ask the people who maintain my code.
+[Edsger W. Dijkstra](http://en.wikipedia.org/wiki/Edsger_W._Dijkstra) famously said that those that start to learn programming with Basic become brain damaged. With the hindsight, I can see what he means. Good coding practices were few and far between in the TI-BASIC world. I'm glad to report, though, there seems to be few lasting repercussions on my programming style. At least, I don't think it is, you'd have to ask the people who maintain my code.
 
 What I mainly programmed was games. I started with some glorified rock-paper-scissors, and went on to more advanced territory. The one I liked the most was Minesweeper. Programming has always seemed more fun to me than actually playing the games I developed, but Minesweeper was one the few games I wrote that I actually used more than a few times. 
 
