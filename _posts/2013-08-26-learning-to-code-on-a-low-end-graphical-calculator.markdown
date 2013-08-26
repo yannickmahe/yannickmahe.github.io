@@ -141,7 +141,7 @@ What I mainly programmed was games. I started with some glorified rock-paper-sci
 
 After that, I tried to do even more advanced games, but the wall that I hit was the calculator's inability to allow real time interaction. This limited me to turn based games, which often (in my opinion) are no fun. Especially with a low-level game designer like I am. I tried strategy games, but couldn't come up with a sufficiently advanced AI to make the game any fun to play.
 
-That's when I tried something else: I actually developed my own version of Sim-City for the TI80. It was very limited, both graphically and in functionality, but it was pretty fun to play. I was somewhat proud of myself for that one.
+That's when I tried something else: I actually developed [my own version of Sim-City for the TI80](https://github.com/yannickmahe/ti80-simcity). It was very limited, both graphically and in functionality, but it was pretty fun to play. I was somewhat proud of myself for that one.
 
 A friend of mine had started his own website, on a Geocities type service provided by his ISP. He asked me if he could put my programs on his website. I, of course, was okay with it. So he typed the whole source code manually on his computer and put it on his website. In essence, before I had any real idea was open source was, I had released my first open source software.
 
