@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: "Learning to code on a low end graphical calculator."
+title: "Learning to code on a low end graphical calculator"
 categories: [coding]
 ---
 
