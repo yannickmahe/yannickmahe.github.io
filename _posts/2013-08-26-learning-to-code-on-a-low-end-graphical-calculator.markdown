@@ -148,3 +148,7 @@ A friend of mine had started his own website, on a Geocities type service provid
 A few years later, I randomly googled "TI80 games" and found on a website I had never heard of, a list of a few games. (the website is still online today: [http://www.ti80.online.fr/jeux.php3](http://www.ti80.online.fr/jeux.php3) - in french) The last one of the list was Sim-City. The one I had programmed. Apparently, someone had stumbled onto my friend's page, and copied the game on their calculator, played it, and found it good enough to put on their website. The only part that was slightly annoying was that they had removed my name from the program (pretty easy to do: remove DISP "BY YANNICK" from the code).
 
 I guess I got "pirated" but it was a pretty awesome feeling: somebody, somewhere, was actually playing a game I had created! But the best part was when I found somebody had used the game and liked it so much... *they wrote a strategy guide*.
+
+**Further discussion**
+
+Reddit discussion on [/r/coding](http://www.reddit.com/r/coding): [link](http://www.reddit.com/r/coding/comments/1l3ql1/learning_to_code_on_a_low_end_graphical_calculator/)

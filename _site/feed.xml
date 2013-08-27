@@ -9,7 +9,7 @@
       <item>
         <title>Learning to code on a low end graphical calculator</title>
         <description>&lt;p&gt;This is how I first started to program, in 1997 to be exact. It was the year I entered high school. Every students was required to have a &lt;a href='http://en.wikipedia.org/wiki/TI80'&gt;TI80&lt;/a&gt; or higher, an entry level programmable graphical calculator. This marvelous little machine cost 100 French Francs at the time, roughly $20 USD or 15 Euros.&lt;/p&gt;
-&lt;img src='/assets/TI80.jpg' alt='TI80' style='float: left; margin-right: 40px;' /&gt;
+&lt;img src='/assets/TI80.jpg' style='float: left; margin-right: 40px;' alt='TI80' /&gt;
 &lt;p&gt;I started programming withit as soon as one of my friends showed me how he had created a rock-paper-scissors program on his TI80, and I could never program enough. I programmed before, during and after class - much to the irritation of my teachers (using a calculator in French class is somewhat conspicuous). Like many people who ended up being programmers, I had just found something I loved. My TI80 is dead now, I tore it apart to try and put it back together as soon as I upgraded, the next year.&lt;/p&gt;
 
 &lt;p&gt;Programming on the TI80 was, in retrospect, a peculiar experience. The language was TI-BASIC, which was a quirky language to say the least especially, in its TI80 form:&lt;/p&gt;
@@ -155,7 +155,11 @@
 
 &lt;p&gt;A few years later, I randomly googled &amp;#8220;TI80 games&amp;#8221; and found on a website I had never heard of, a list of a few games. (the website is still online today: &lt;a href='http://www.ti80.online.fr/jeux.php3'&gt;http://www.ti80.online.fr/jeux.php3&lt;/a&gt; - in french) The last one of the list was Sim-City. The one I had programmed. Apparently, someone had stumbled onto my friend&amp;#8217;s page, and copied the game on their calculator, played it, and found it good enough to put on their website. The only part that was slightly annoying was that they had removed my name from the program (pretty easy to do: remove DISP &amp;#8220;BY YANNICK&amp;#8221; from the code).&lt;/p&gt;
 
-&lt;p&gt;I guess I got &amp;#8220;pirated&amp;#8221; but it was a pretty awesome feeling: somebody, somewhere, was actually playing a game I had created! But the best part was when I found somebody had used the game and liked it so much&amp;#8230; &lt;em&gt;they wrote a strategy guide&lt;/em&gt;.&lt;/p&gt;</description>
+&lt;p&gt;I guess I got &amp;#8220;pirated&amp;#8221; but it was a pretty awesome feeling: somebody, somewhere, was actually playing a game I had created! But the best part was when I found somebody had used the game and liked it so much&amp;#8230; &lt;em&gt;they wrote a strategy guide&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Further discussion&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reddit discussion on &lt;a href='http://www.reddit.com/r/coding'&gt;/r/coding&lt;/a&gt;: &lt;a href='http://www.reddit.com/r/coding/comments/1l3ql1/learning_to_code_on_a_low_end_graphical_calculator/'&gt;link&lt;/a&gt;&lt;/p&gt;</description>
         <pubDate>Mon, 26 Aug 2013 00:00:00 +0200</pubDate>
         <link>/coding/2013/08/26/learning-to-code-on-a-low-end-graphical-calculator.html</link>
         <guid isPermaLink="true">/coding/2013/08/26/learning-to-code-on-a-low-end-graphical-calculator.html</guid>
