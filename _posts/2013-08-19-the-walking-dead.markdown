@@ -43,3 +43,5 @@ Somewhat. While it was impossible to predict at the time of the release of 1.0 t
 **Further discussion**
 
 Reddit discussion on [/r/php](http://www.reddit.com/r/PHP): [link](http://www.reddit.com/r/PHP/comments/1knp3v/the_walking_dead_living_with_a_legacy_php/)
+
+Discussion on Hacker News: [https://news.ycombinator.com/item?id=6295509](https://news.ycombinator.com/item?id=6295509)
