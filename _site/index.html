@@ -37,10 +37,53 @@
 				<div class="col-md-8 col-xs-12 blog-body">
 					
 	<div class="page-header">
+		<h1><a href="/coding/2013/09/02/redoing-the-whole-user-interface-of-our-web-application.html">Redoing the whole user interface of our web application</a></h1>
+	</div>
+	<p>Our application didn&#8217;t have its interface change since 2008. Even back then, it wasn&#8217;t winning any prize for usability or design. That interface was designed, like a lot are, by the original developers. Like most developer &#8220;designed&#8221; interface, it showed a clear lack of foresight. Often, it was implemented in such a way that made it easier for the developer to maintain than for the user to use. It was easily breakable, and small changes could render whole features impossible to use.</p>
+
+<p>Also problematic, it used Scriptaculous (Prototype), as that library was then integrated in the server-side framework (Symfony). Over time, as jQuery overtook Scriptaculous in both popularity and usability for the developer, the problems with this integration became more and more evident. While jQuery has a thriving plugin community, it has become tough to even find good documentation for Scriptaculous apps. See <a href='/symfony/2013/08/19/the-walking-dead.html'>this post</a> for more on the risks of working with an older framework.</p>
+
+<p>The interface did have a lot of good qualities though. There is something to be said for its consistency across the whole application. It was, even if not always intuitive, heavily consistent in between features. The same pattern was repeated over and over and over, which made it somewhat easy to guess where you could find one functionnality or another. It was also heavily optimised for performance through its heavy use of ajax instead of a more traditionnal &#8220;reload whole page&#8221; pattern that would have been easier to setup. Interestingly too, it aimed to be a <a href='http://www.csszengarden.com/'>CSS Zen Garden</a> of sorts, with a custom CSS for each client. The issue with that of course, was that it demanded heavy CSS editing whenever we got a new client, and often didn&#8217;t have the hoped modularity. This meant that sometimes, functionnality that worked with one CSS didn&#8217;t work with another.</p>
+
+<p>For the last 5 years, we made do with it.</p>
+
+<p>We still sold to some clients, still managed to train new users, and still kept maintaining the app. We sometimes tried to have some small incremental benefits, but there was a fear we could easily break the app. Not unjustified, this fear mainly stemmed from the fact that what worked with one client often failed with another.</p>
+
+<p>Then in early 2012, we lost a big bid for a very big prospect. It was a brand everybody has heard of, and would have been the crown jewel of our client roster. We lost to a competitor over usability. We matched feature for feature, were cheaper, but looked harder to use - and really were harder to use to an extent. We also lacked eye-candy, which does make a very big difference, especially when you sell to marketing. The app was to be a flagship of sorts for their brand to their resellers. An ugly app hurts the brand image.</p>
+
+<p>Well, that was a big wake up call.</p>
+
+<p>We decided to redo everything. Our goal was to have a new interface that:</p>
+
+<ul>
+<li>looked modern</li>
+
+<li>allowed for some customization per client</li>
+
+<li>was easily maintainable</li>
+
+<li>was easily expanded</li>
+</ul>
+
+<p>We ended up choosing to use <a href='http://getbootstrap.com/'>Bootstrap</a>, as it meant we had a complete toolkit that we could adapt to the different situations we would face. We liked the look and feel, and easily could customize the look per client.</p>
+
+<p>Bootstrap uses jQuery for its javascript components, which meant we would have to either make our whole app work with both jQuery and Scriptaculous or rewrite all our frontend code to use jQuery instead of Scriptaculous. I chose the second option: it would take more time, but we would end up with something more easily maintainable. While there is no automatic way to go from Prototype to jQuery, and everything has to be done by hand, it is fairly straightforward. That part took about two weeks, which left me wondering why it hadn&#8217;t been done before.</p>
+
+<p>Then, I set up moving from the custom CSS classes and HTML structure to Bootstrap classes and HTML. That part was the longest, and took around 3 months. The only significant hurdle was to ensure Ajax features didn&#8217;t break in the move. This was actually time consuming, as our app made heavy use of in-app popins. We had created custom popin classes that enabled us to superimpose multiple popins ; Bootstrap doesn&#8217;t let us do that, so we had to come up with simpler ways to let the user interact with the application. At debugging, this was the part that had the most bugs, especially since it didn&#8217;t degrade gracefully: our original HTML was ok-looking when using Bootstrap, and could still be used. For the popins however, if we didn&#8217;t change the behavior, it wouldn&#8217;t work &#8220;as is&#8221;.</p>
+
+<p>Finally, I set up customization. The idea was pretty simple: changing the color scheme for each client. Bootstrap gave us an easy way to do that. We had the user change the color scheme, and recompile the Bootstrap less files with the new color variable values when it was done. Fairly easy. That way, only colors changed, and no customization would break the app.</p>
+
+<p>In the end redoing everything took about three months, for a single developer. It is not that big of an undertaking, even for a company with limited resources and was clearly worth it. It was another three months of use in production before all the wrinkles were ironed. We are currently migrating each of our clients to the new interface.</p>
+
+<p>In the year since the rewrite, we have signed 4 times more clients than the year before. Of course, not all of that can be attributed to the user interface: the recession was in full swing in France before, and our sales approach has evolved greatly. Still, it certainly helped, and the original cost of redoing the interface has been recouped now.</p>
+
+<p>We are all certain, if we had had that interface, we wouldn&#8217;t have lost that one client.</p>
+
+	<div class="page-header">
 		<h1><a href="/coding/2013/08/26/learning-to-code-on-a-low-end-graphical-calculator.html">Learning to code on a low end graphical calculator</a></h1>
 	</div>
 	<p>This is how I first started to program, in 1997 to be exact. It was the year I entered high school. Every students was required to have a <a href='http://en.wikipedia.org/wiki/TI80'>TI80</a> or higher, an entry level programmable graphical calculator. This marvelous little machine cost 100 French Francs at the time, roughly $20 USD or 15 Euros.</p>
-<img src='/assets/TI80.jpg' style='float: left; margin-right: 40px;' alt='TI80' />
+<img alt='TI80' src='/assets/TI80.jpg' style='float: left; margin-right: 40px;' />
 <p>I started programming withit as soon as one of my friends showed me how he had created a rock-paper-scissors program on his TI80, and I could never program enough. I programmed before, during and after class - much to the irritation of my teachers (using a calculator in French class is somewhat conspicuous). Like many people who ended up being programmers, I had just found something I loved. My TI80 is dead now, I tore it apart to try and put it back together as soon as I upgraded, the next year.</p>
 
 <p>Programming on the TI80 was, in retrospect, a peculiar experience. The language was TI-BASIC, which was a quirky language to say the least especially, in its TI80 form:</p>
@@ -225,7 +268,7 @@
 
 <p>The big one in terms of productivity: I can effectively no longer use plugins. Symfony had and still has a great plugin system, somewhat similar to Ruby On Rails gems, that enabled you to add functionnality easily. Most plugins were written for version 1.2+, no new plugins for 1.X are being written (the community for Symfony 2.X bundles however is impressive). That means I often have to develop from scratch what could have been done by just installing a plugin. I recently had to add a small CMS to our app, and had to write it from the ground up. Symfony CMSs exist of course but none are compatible with my version.</p>
 
-<p>Somewhat more annoying, Symfony 1.0 used Prototype (scriptaculous) as its Javascript framework, and used it somewhat extensively. This led to all our client dside code using this library instead of today&#8217;s de-facto standard, jQuery. UX advances which could require just a simple jQuery plugin have to be written from scratch. (we did solve that problem - more on that in a later post).</p>
+<p>Somewhat more annoying, Symfony 1.0 used Prototype (scriptaculous) as its Javascript framework, and used it somewhat extensively. This led to all our client dside code using this library instead of today&#8217;s de-facto standard, jQuery. UX advances which could require just a simple jQuery plugin have to be written from scratch. (we did solve that problem - more on that in a <a href='/coding/2013/09/02/redoing-the-whole-user-interface-of-our-web-application.html'>later post</a>).</p>
 
 <p>This framework is not compatible with newer versions of PHP. It was written for PHP 5.2, and is compatible with PHP 5.3 but no longer works on PHP 5.4. I haven&#8217;t even tried 5.5 yet. This prevents us from using the language&#8217;s new features, and we can&#8217;t use new some of the new libraries.</p>
 
@@ -289,6 +332,12 @@
 	<hr>-->
 	<h3>Older posts</h3>
 	
+	
+	<p>
+		<a href="/coding/2013/09/02/redoing-the-whole-user-interface-of-our-web-application.html">Redoing the whole user interface of our web application</a> <small>02&nbsp;Sep&nbsp;2013</small>
+	</p>
+	
+		
 	
 	<p>
 		<a href="/coding/2013/08/26/learning-to-code-on-a-low-end-graphical-calculator.html">Learning to code on a low end graphical calculator</a> <small>26&nbsp;Aug&nbsp;2013</small>
