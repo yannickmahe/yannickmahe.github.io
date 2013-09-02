@@ -35,4 +35,4 @@ In the end redoing everything took about three months, for a single developer. I
 
 In the year since the rewrite, we have signed 4 times more clients than the year before. Of course, not all of that can be attributed to the user interface: the recession was in full swing in France before, and our sales approach has evolved greatly. Still, it certainly helped, and the original cost of redoing the interface has been recouped now.
 
-We are all certain, if we had had that interface, we wouldn't have lost that one client.
+We are all certain, if we had had that interface, we wouldn't have lost that one prospect.
