@@ -46,7 +46,7 @@
 
 &lt;p&gt;In the year since the rewrite, we have signed 4 times more clients than the year before. Of course, not all of that can be attributed to the user interface: the recession was in full swing in France before, and our sales approach has evolved greatly. Still, it certainly helped, and the original cost of redoing the interface has been recouped now.&lt;/p&gt;
 
-&lt;p&gt;We are all certain, if we had had that interface, we wouldn&amp;#8217;t have lost that one client.&lt;/p&gt;</description>
+&lt;p&gt;We are all certain, if we had had that interface, we wouldn&amp;#8217;t have lost that one prospect.&lt;/p&gt;</description>
         <pubDate>Mon, 02 Sep 2013 00:00:00 +0200</pubDate>
         <link>/coding/2013/09/02/redoing-the-whole-user-interface-of-our-web-application.html</link>
         <guid isPermaLink="true">/coding/2013/09/02/redoing-the-whole-user-interface-of-our-web-application.html</guid>
@@ -55,7 +55,7 @@
       <item>
         <title>Learning to code on a low end graphical calculator</title>
         <description>&lt;p&gt;This is how I first started to program, in 1997 to be exact. It was the year I entered high school. Every students was required to have a &lt;a href='http://en.wikipedia.org/wiki/TI80'&gt;TI80&lt;/a&gt; or higher, an entry level programmable graphical calculator. This marvelous little machine cost 100 French Francs at the time, roughly $20 USD or 15 Euros.&lt;/p&gt;
-&lt;img alt='TI80' src='/assets/TI80.jpg' style='float: left; margin-right: 40px;' /&gt;
+&lt;img src='/assets/TI80.jpg' alt='TI80' style='float: left; margin-right: 40px;' /&gt;
 &lt;p&gt;I started programming withit as soon as one of my friends showed me how he had created a rock-paper-scissors program on his TI80, and I could never program enough. I programmed before, during and after class - much to the irritation of my teachers (using a calculator in French class is somewhat conspicuous). Like many people who ended up being programmers, I had just found something I loved. My TI80 is dead now, I tore it apart to try and put it back together as soon as I upgraded, the next year.&lt;/p&gt;
 
 &lt;p&gt;Programming on the TI80 was, in retrospect, a peculiar experience. The language was TI-BASIC, which was a quirky language to say the least especially, in its TI80 form:&lt;/p&gt;
