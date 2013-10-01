@@ -1,0 +1,27 @@
+---
+layout: posts
+title: "Everything is going to explode! or: Moving development forward when you have hit a dead end."
+categories: [process]
+---
+When I joined Alveos, the overall feeling at the company was that our main product was impossible to move forward. It had been developed originally 4 years before, and grew organically. Previous tech leads felt that we had hit a dead-end development wise and that continuing development was dangerous. These people were very very competent developers, knew the product from end to end. I should know, I live in their code everyday. Yet, it turned out, the were wrong.
+
+I know where their feeling came from. For one thing, developers like to start fresh, start a new project and "do it right this time". But more importantly in this case, the maintainability was particularly bad. Or rather it was the worst they'd ever seen. Unlike most of their previous projects, this project had rapid and ongoing development. This meant the ripple effects of small, quick and bad decisions were felt regularly for years. "We should redo that part" had become a description of more and more parts of the project, and radical changes had to be put together the MacGyver way rather than with careful analysis. Most developers hate that, and with good reason.
+
+Also, the feeling of "If we do anything, it's all going to explode" came from some particularly difficult times. During those time, changes brought with them new bugs and clients were exceedingly unhappy. The job was basically putting out fire after fire. Adding to that, the hosting solution (one server per app for frontend and backend) was reaching its limits. On top of that, the upgrade scripts were unwieldly and sometimes required manual intervention or failed all together. All this added to the clients' perception that nothing was working right.
+
+When I came to the company after the previous tech lead had left, this impression was pervasive even among the non-tech staff. Despite early good impressions on my part regarding the app's maintainability (regardless of its obsolete framework), it was chosen to move forward with a complete rewrite. As I had stated before, this was stopped for a number of reasons: cost, risks, and a strategy that would have prevented migrating existing clients. Paradoxically, writing from scratch while permitting migration was deemed impossible/too hard/too time-consuming: the kernel of the app was considered too hard to port as it was deeply encroached in the framework. So the rewrite stopped. It was clear we wouldn't get a new "clean" app. Yet we were at risk of becoming obsolete.
+
+That's when I tried to make us go forward on the existing app despite the perceived risks. Just small risk-free changes at first. Pretty simple stuff, but often important enough to be noticed: showing the number of items in the shopping cart for example. Changing the position of buttons to be more consistent across the app. Gradually, the changes I added became large ones. It turned out the app was quite maintainable, even though evidently flawed architecture-wise in some places.
+
+I believe my difference in impression came from previous experiences, maintaining much older code that had been written by inexperienced developers before PHP frameworks became commonplace. Compared to those project, this app was almost a breath of fresh air. The guys before me were good, and their worst was better than most. Having worked on really bad projects, I'm pretty used to working on bad code. Bad projects also help you learn to work even not everything is as it should be. What also helped me quite a bit was that I wasn't as productive as my predecessors, given that my knowledge of the app's architecture was still maturing. So, instead of introducing new changes regularly, I'd introduce new ones every few weeks. It turned out, spacing the start of the fires made them easier to put out.
+
+We underwent a hosting migration that allowed us to scale our app much better. The app was once again fast enough (around 6 times faster on worst case scenarios), and began to be considered stable again. Our contractor for that did a really incredible job, moving us to scalable, relatively cheap hosting, with a Chef delivery system that was both reliable and easy to use.
+
+With these successes, I began to grow bolder as my knowledge of the app's maintainability grew. I had encountered my share of bad code before, and this wasn't nearly the worst. We started implementing [a real roadmap](/startup/process/2013/08/12/moving-forward.html), and moving forward. Our current pace is faster than it has ever been, I believe, save for the original release of the app. This whole evolution took about one year, culminating in the [complete overhaul of the application's interface](/coding/2013/09/02/redoing-the-whole-user-interface-of-our-web-application.html).
+
+We lost a lot of time because of the feeling nothing could be done. If I encounter a development dead-end again, I believe the best approach would be, instead of immediately going towards a costly rewrite to ask these questions:
+- what do we want to do?
+- what can't we do that we want to do?
+- why can't we do it?
+
+If I had asked these questions in the beginning, I think we could have saved six months. It turned out that what we really couldn't do, we could live with. And what we can do is really a lot.
